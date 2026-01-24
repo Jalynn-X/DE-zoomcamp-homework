@@ -57,5 +57,67 @@ ORDER BY tip DESC
 Answer: East Harlem North
 
 
+TERRAFORM
 
+1. variables.tf
 
+variable "bq_dataset_name" {
+    description = "bigquery dataset name"
+    default = "demo_dataset"
+}
+
+variable "gcs_bucket_name" {
+    description = "my storage bucket name"
+    default = "project-ebfd82a3-2711-4df0-a4c-terrafrom-bucket"
+}
+
+variable "location" {
+    description = "location of project"
+    default = "europe-west1"
+}
+
+variable "project" {
+    description = "project"
+    default = "project-ebfd82a3-2711-4df0-a4c"
+}
+
+2. main.tf
+
+terraform {
+  required_providers {
+    google = {
+      source  = "hashicorp/google"
+      version = "7.16.0"
+    }
+  }
+}
+
+provider "google" {
+  project = var.project
+  region  = var.location
+}
+
+resource "google_storage_bucket" "terraform-demo" {
+  name                        = var.gcs_bucket_name
+  location                    = var.location
+  force_destroy               = true
+  uniform_bucket_level_access = true
+
+  lifecycle_rule {
+    condition {
+      age = 1
+    }
+    action {
+      type = "AbortIncompleteMultipartUpload"
+    }
+  }
+}
+
+resource "google_bigquery_dataset" "demo-dataset" {
+  dataset_id = var.bq_dataset_name
+  location = var.location
+  delete_contents_on_destroy = true
+}
+
+Question 7:
+Answer: terraform init, terraform apply -auto-approve, terraform destroy
