@@ -21,7 +21,7 @@ pip 25.3 from /usr/local/lib/python3.13/site-packages/pip (python 3.13)
 **answer:** 8007
 
 ## Question 4:
-	SELECT *
+	SELECT pickup_day
 	FROM(
 	SELECT CAST(lpep_pickup_datetime AS DATE) AS pickup_day, SUM(trip_distance) AS distance
 	FROM taxi_trip_201511
@@ -31,7 +31,7 @@ pip 25.3 from /usr/local/lib/python3.13/site-packages/pip (python 3.13)
 	ORDER BY distance DESC
 	LIMIT 1;
   
-**answer:** 6377
+**answer:** 2025-11-20
 
 ## Question 5:
 
