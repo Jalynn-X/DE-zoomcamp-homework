@@ -1,6 +1,7 @@
 ## Review:
 ### Question 4:
 I should use max for the longest trip distance instead of sum
+
 	SELECT pickup_day
 	FROM(
 	SELECT CAST(lpep_pickup_datetime AS DATE) AS pickup_day, MAX(trip_distance) AS distance
@@ -15,6 +16,7 @@ Correct Answer: 2025-11-14
 
 ### Question 6:
 I wrote PULocationID for two times and the join condition "PULocationID" = dropoff."LocationID" should be "DOLocationID" = dropoff."LocationID".
+
 	SELECT dropoff_zone, max(tip_amount) AS tip
 	FROM (
 		SELECT taxi_trip_201511.*, pickup."Zone" AS pickup_zone, dropoff."Zone" AS dropoff_zone
