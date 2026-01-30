@@ -15,9 +15,10 @@ I should use max for the longest trip distance instead of sum
 Correct Answer: 2025-11-14
 
 ### Question 6:
-I wrote PULocationID for two times and the join condition "PULocationID" = dropoff."LocationID" should be "DOLocationID" = dropoff."LocationID".
+I wrote PULocationID for two times and the join condition "PULocationID" = dropoff."LocationID" should be "DOLocationID" = dropoff."LocationID". 
+And I dont need to use group by but directly order by and limit 1 to get the largest tip.
 
-	SELECT dropoff_zone, max(tip_amount) AS tip
+	SELECT dropoff_zone, tip_amount AS tip
 	FROM (
 		SELECT taxi_trip_201511.*, pickup."Zone" AS pickup_zone, dropoff."Zone" AS dropoff_zone
 		FROM taxi_trip_201511, taxi_zone pickup, taxi_zone dropoff
@@ -26,8 +27,8 @@ I wrote PULocationID for two times and the join condition "PULocationID" = dropo
 		AND pickup."Zone" = 'East Harlem North'
 		AND CAST(lpep_pickup_datetime AS DATE) >= '2025-11-01' 
 		AND CAST(lpep_pickup_datetime AS DATE) < '2025-12-01') t
-	GROUP BY dropoff_zone
-	ORDER BY tip DESC;
+	ORDER BY tip DESC
+	LIMIT 1;
 
 Correct Answer:Yorkville West
 
