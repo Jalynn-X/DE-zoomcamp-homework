@@ -4,23 +4,28 @@
 Answer: rpk version: v25.3.9
 
 ## Question 2:
-Producer file link:
+Producer file link: https://github.com/Jalynn-X/DE-zoomcamp-homework/blob/main/homework7/producer.py
+
 Answer: 10s (7.39 seconds)
 
 ## Question 3:
-Consumer file link: 
+Consumer file link: https://github.com/Jalynn-X/DE-zoomcamp-homework/blob/main/homework7/consumer.py
+
 Answer: 8506
 
 ## Question 4:
-file link: 
+file link: https://github.com/Jalynn-X/DE-zoomcamp-homework/blob/main/homework7/src/job/tumbling_window_job.py
+
 Answer: 74
 
 ## Question 5:
-file link: 
+file link: https://github.com/Jalynn-X/DE-zoomcamp-homework/blob/main/homework7/src/job/most_trips_window.py
+
 Answer: 81
 
 ## Question 5:
-file link: 
+file link: https://github.com/Jalynn-X/DE-zoomcamp-homework/blob/main/homework7/src/job/one_hour_tumbling_tips.py
+
 Answer: 2025-10-16 18:00:00
 
 
